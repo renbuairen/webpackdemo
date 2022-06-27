@@ -2,7 +2,8 @@ const path = require("path")
 // 引入自动生成 html 的插件
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-// const HtmlWebpackPlugin = require('html-webpack-plugin')
+// webpack.config.js
+const { VueLoaderPlugin } = require('vue-loader')
 
 
 module.exports = {
@@ -22,6 +23,7 @@ module.exports = {
             filename: 'index.html' // 生成文件的名称
         }),
         new CleanWebpackPlugin(), // 删除的是ouput path 里配置的那个输出文件的文件夹
+        new VueLoaderPlugin()
     ],
     module: {
         rules: [
@@ -118,6 +120,25 @@ module.exports = {
                     }
                 }
             },
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader'
+            },
+            /* // 它会应用到普通的 `.js` 文件
+            // 以及 `.vue` 文件中的 `<script>` 块
+            {
+                test: /\.js$/,
+                loader: 'babel-loader'
+            },
+            // 它会应用到普通的 `.css` 文件
+            // 以及 `.vue` 文件中的 `<style>` 块
+            {
+                test: /\.css$/,
+                use: [
+                    'vue-style-loader',
+                    'css-loader'
+                ]
+            } */
 
         ]
     }
