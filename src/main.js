@@ -6,4 +6,5 @@ import $ from 'jquery'
 // $('#swiper').css('background-color', 'orange')
 
 // 处理css
-import './styles/index.css'
+// import './styles/index.css';
+import './styles/index.less';
