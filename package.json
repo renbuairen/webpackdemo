@@ -12,5 +12,8 @@
   "scripts": {
     "build": "webpack",
     "serve": "webpack serve"
+  },
+  "dependencies": {
+    "jquery": "^3.6.0"
   }
 }
